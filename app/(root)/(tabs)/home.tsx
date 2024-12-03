@@ -1,7 +1,7 @@
 import { useUser } from "@clerk/clerk-expo";
 import { useAuth } from "@clerk/clerk-expo";
 import * as Location from "expo-location";
-import { router } from "expo-router";
+import { router, Stack } from "expo-router";
 import { useState, useEffect } from "react";
 import {
   Text,
@@ -78,11 +78,31 @@ const Home = () => {
 
   return (
     <SafeAreaView className="bg-general-500">
+      <Stack.Screen
+        options={{
+          headerLeft: () => (
+            <Text className="text-xl font-JakartaExtraBold ml-5">
+              Welcome {user?.firstName}👋
+            </Text>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={handleSignOut}
+              className="justify-center items-center w-10 h-10 rounded-full bg-white"
+            >
+              <Image source={icons.out} className="w-4 h-4" />
+            </TouchableOpacity>
+          ),
+          headerStyle: {
+            backgroundColor: "#F6F8FA",
+          },
+        }}
+      />
       <FlatList
         data={recentRides?.slice(0, 5)}
         renderItem={({ item }) => <RideCard ride={item} />}
         keyExtractor={(item, index) => index.toString()}
-        className="px-5"
+        className="px-5 -mt-5"
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
           paddingBottom: 100,
@@ -106,18 +126,6 @@ const Home = () => {
         )}
         ListHeaderComponent={
           <>
-            <View className="flex flex-row items-center justify-between my-5">
-              <Text className="text-2xl font-JakartaExtraBold">
-                Welcome {user?.firstName}👋
-              </Text>
-              <TouchableOpacity
-                onPress={handleSignOut}
-                className="justify-center items-center w-10 h-10 rounded-full bg-white"
-              >
-                <Image source={icons.out} className="w-4 h-4" />
-              </TouchableOpacity>
-            </View>
-
             <GoogleTextInput
               icon={icons.search}
               containerStyle="bg-white shadow-md shadow-neutral-300"

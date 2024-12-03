@@ -7,7 +7,7 @@ import { Ride } from "@/types/type";
 const RideCard = ({ ride }: { ride: Ride }) => {
   return (
     <View className="flex flex-row items-center justify-center bg-white rounded-lg shadow-sm shadow-neutral-300 mb-3">
-      <View className="flex flex-col items-start justify-center p-3">
+      <View className="flex flex-col items-start justify-center p-3 w-full">
         <View className="flex flex-row items-center justify-between">
           <Image
             source={{
@@ -33,14 +33,19 @@ const RideCard = ({ ride }: { ride: Ride }) => {
           </View>
         </View>
 
-        <View className="flex flex-col w-full mt-5 bg-[#E2F5ED] rounded-lg p-3 items-start justify-center">
-          <View className="flex flex-row items-center w-full justify-between mb-5">
+        <View className="flex flex-col w-full max-w-full mt-5 bg-[#E2F5ED] rounded-lg p-3 items-start justify-center">
+          <View className="flex flex-row items-center w-full max-w-full justify-between mb-5">
             <Text className="text-md font-JakartaMedium text-gray-500">
               Date & Time
             </Text>
-            <Text className="text-md font-JakartaBold" numberOfLines={1}>
-              {formatDate(ride.created_at)}, {formatTime(ride.ride_time)}
-            </Text>
+            <View>
+              <Text className="text-md font-JakartaBold" numberOfLines={1}>
+                {formatDate(ride.created_at)}
+              </Text>
+              <Text className="text-md font-JakartaBold" numberOfLines={1}>
+                {formatTime(ride.ride_time)}
+              </Text>
+            </View>
           </View>
 
           <View className="flex flex-row items-center w-full justify-between mb-5">

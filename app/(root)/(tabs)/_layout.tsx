@@ -14,7 +14,7 @@ const TabIcon = ({
     className={`flex flex-row justify-center items-center rounded-full ${focused ? "bg-general-300" : ""}`}
   >
     <View
-      className={`rounded-full w-12 h-12 items-center justify-center ${focused ? "bg-general-400" : ""}`}
+      className={`rounded-full w-12 h-12 items-center justify-center ${focused ? "bg-[#08B783]" : ""}`}
     >
       <Image
         source={source}
@@ -54,7 +54,8 @@ export default function Layout() {
         name="home"
         options={{
           title: "Home",
-          headerShown: false,
+          headerShown: true,
+          headerTitle: "",
           tabBarIcon: ({ focused }) => (
             <TabIcon source={icons.home} focused={focused} />
           ),
