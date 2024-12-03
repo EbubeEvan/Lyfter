@@ -81,16 +81,20 @@ const Home = () => {
       <Stack.Screen
         options={{
           headerLeft: () => (
-            <Text className="text-xl font-JakartaExtraBold ml-5">
-              Welcome {user?.firstName}👋
+            <Text className="text-xl text-[#08B783] font-extrabold ml-5 italic">
+              LYFTER
             </Text>
           ),
           headerRight: () => (
             <TouchableOpacity
               onPress={handleSignOut}
-              className="justify-center items-center w-10 h-10 rounded-full bg-white"
+              className="justify-center items-center w-10 h-10 rounded-full border border-[#08B783] mr-3"
             >
-              <Image source={icons.out} className="w-4 h-4" />
+              <Image
+                source={icons.out}
+                className="w-4 h-4"
+                tintColor="#08B783"
+              />
             </TouchableOpacity>
           ),
           headerStyle: {
@@ -117,7 +121,7 @@ const Home = () => {
                   alt="No recent rides found"
                   resizeMode="contain"
                 />
-                <Text className="text-sm">No recent rides found</Text>
+                <Text className="text-sm">No recent lifts found</Text>
               </>
             ) : (
               <ActivityIndicator size="small" color="#000" />
@@ -126,6 +130,10 @@ const Home = () => {
         )}
         ListHeaderComponent={
           <>
+            <Text className="text-xl font-JakartaExtraBold mb-3">
+              Hello {user?.firstName}👋
+            </Text>
+
             <GoogleTextInput
               icon={icons.search}
               containerStyle="bg-white shadow-md shadow-neutral-300"
@@ -134,7 +142,7 @@ const Home = () => {
 
             <>
               <Text className="text-xl font-JakartaBold mt-5 mb-3">
-                Your current location
+                Where You Are
               </Text>
               <View className="flex flex-row items-center bg-transparent h-[300px]">
                 <Map />
@@ -142,7 +150,7 @@ const Home = () => {
             </>
 
             <Text className="text-xl font-JakartaBold mt-5 mb-3">
-              Recent Rides
+              Previous Lifts
             </Text>
           </>
         }
