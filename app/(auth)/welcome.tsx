@@ -31,7 +31,7 @@ const Home = () => {
           <View className="w-[32px] h-[4px] mx-1 bg-[#E2E8F0] rounded-full" />
         }
         activeDot={
-          <View className="w-[32px] h-[4px] mx-1 bg-[#0286FF] rounded-full" />
+          <View className="w-[32px] h-[4px] mx-1 bg-[#08B783] rounded-full" />
         }
         onIndexChanged={(index) => setActiveIndex(index)}
       >
@@ -55,7 +55,7 @@ const Home = () => {
       </Swiper>
 
       <CustomButton
-        title={isLastSlide ? "Get Started" : "Next"}
+        title={isLastSlide ? "Go" : "Next"}
         onPress={() =>
           isLastSlide
             ? router.replace("/(auth)/sign-up")

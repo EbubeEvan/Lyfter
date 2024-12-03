@@ -44,8 +44,8 @@ const SignIn = () => {
       <View className="flex-1 bg-white">
         <View className="relative w-full h-[250px]">
           <Image source={images.signUpCar} className="z-0 w-full h-[250px]" />
-          <Text className="text-2xl text-black font-JakartaSemiBold absolute bottom-5 left-5">
-            Welcome 👋
+          <Text className="text-2xl text-white font-JakartaSemiBold absolute bottom-5 left-5">
+            Welcome Back 👋
           </Text>
         </View>
 
@@ -82,7 +82,7 @@ const SignIn = () => {
             className="text-lg text-center text-general-200 mt-10"
           >
             Don't have an account?{" "}
-            <Text className="text-primary-500">Sign Up</Text>
+            <Text className="text-[#08B783]">Sign Up</Text>
           </Link>
         </View>
       </View>

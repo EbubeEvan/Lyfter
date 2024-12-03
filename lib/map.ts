@@ -100,7 +100,6 @@ export const calculateDriverTimes = async ({
         `https://maps.googleapis.com/maps/api/directions/json?origin=${marker.latitude},${marker.longitude}&destination=${userLatitude},${userLongitude}&key=${directionsAPI}`,
       );
       const dataToUser = await responseToUser.json();
-      console.log("dataToUser", dataToUser);
 
       const timeToUser = dataToUser?.routes?.[0]?.legs?.[0]?.duration?.value; // Time in seconds
 
@@ -109,7 +108,6 @@ export const calculateDriverTimes = async ({
         `https://maps.googleapis.com/maps/api/directions/json?origin=${userLatitude},${userLongitude}&destination=${destinationLatitude},${destinationLongitude}&key=${directionsAPI}`,
       );
       const dataToDestination = await responseToDestination.json();
-      console.log("dataToDestination", dataToDestination);
 
       const timeToDestination =
         dataToDestination?.routes?.[0]?.legs?.[0]?.duration?.value; // Time in seconds

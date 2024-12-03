@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Text, View } from "react-native";
+import { ActivityIndicator, Text, View, Alert } from "react-native";
 import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
@@ -21,6 +21,8 @@ const Map = () => {
     userLatitude,
     destinationLatitude,
     destinationLongitude,
+    isValidRoute,
+    setIsValidRoute,
   } = useLocationStore();
   const { selectedDriver, setDrivers } = useDriverStore();
 
@@ -91,7 +93,7 @@ const Map = () => {
       showsUserLocation={true}
       userInterfaceStyle="light"
     >
-      {markers.map((marker, index) => (
+      {markers.map((marker) => (
         <Marker
           key={marker.id}
           coordinate={{
@@ -128,6 +130,14 @@ const Map = () => {
             apikey={directionsAPI!}
             strokeColor="#0286FF"
             strokeWidth={2}
+            onError={(errorMessage) => {
+              setIsValidRoute(false);
+            }}
+            onReady={({ waypointOrder }) => {
+              if (waypointOrder) {
+                setIsValidRoute(true);
+              }
+            }}
           />
         </>
       )}

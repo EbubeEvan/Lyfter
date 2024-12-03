@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 
 import CustomButton from "@/components/CustomButton";
 import GoogleTextInput from "@/components/GoogleTextInput";
@@ -13,7 +13,15 @@ const FindRide = () => {
     destinationAddress,
     setDestinationLocation,
     setUserLocation,
+    isValidRoute,
   } = useLocationStore();
+
+  if (!isValidRoute) {
+    Alert.alert(
+      "No Route Found",
+      "The selected destination is not reachable from your location and you are unable to move forward. Please choose another destination.",
+    );
+  }
 
   return (
     <RideLayout title="Ride">
@@ -41,11 +49,13 @@ const FindRide = () => {
         />
       </View>
 
-      <CustomButton
-        title="Find Now"
-        onPress={() => router.push(`/(root)/confirm-ride`)}
-        className="mt-5"
-      />
+      {isValidRoute && (
+        <CustomButton
+          title="Find Now"
+          onPress={() => router.push(`/(root)/confirm-ride`)}
+          className="mt-5"
+        />
+      )}
     </RideLayout>
   );
 };

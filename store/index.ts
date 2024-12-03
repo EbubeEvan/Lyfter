@@ -9,6 +9,12 @@ export const useLocationStore = create<LocationStore>((set) => ({
   destinationLatitude: null,
   destinationLongitude: null,
   destinationAddress: null,
+  isValidRoute: null,
+  setIsValidRoute: (data: boolean) => {
+    set(() => ({
+      isValidRoute: data,
+    }));
+  },
   setUserLocation: ({
     latitude,
     longitude,

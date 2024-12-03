@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "uber",
-    "slug": "uber",
+    "name": "lyfter",
+    "slug": "lyfter",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "lyfter",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#2F80ED"
+      "backgroundColor": "#08b783"
     },
     "ios": {
       "supportsTablet": true
@@ -30,7 +30,7 @@
       [
         "expo-router",
         {
-          "origin": "https://uber.dev/"
+          "origin": "https://lyfter.com/"
         }
       ]
     ],
