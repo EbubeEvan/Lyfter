@@ -25,7 +25,8 @@ const Home = () => {
   const { user } = useUser();
   const { signOut } = useAuth();
 
-  const { setUserLocation, setDestinationLocation } = useLocationStore();
+  const { setUserLocation, setDestinationLocation, setIsValidRoute } =
+    useLocationStore();
 
   const handleSignOut = () => {
     signOut();
@@ -42,6 +43,8 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
+      setIsValidRoute(null);
+
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setHasPermission(false);

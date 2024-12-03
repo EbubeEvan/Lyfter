@@ -16,7 +16,7 @@ const FindRide = () => {
     isValidRoute,
   } = useLocationStore();
 
-  if (!isValidRoute) {
+  if (isValidRoute === false) {
     Alert.alert(
       "No Route Found",
       "The selected destination is not reachable from your location and you are unable to move forward. Please choose another destination.",

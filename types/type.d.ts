@@ -105,7 +105,7 @@ declare interface LocationStore {
   destinationLongitude: number | null;
   destinationAddress: string | null;
   isValidRoute: boolean | null;
-  setIsValidRoute: (data: boolean) => void;
+  setIsValidRoute: (data: boolean | null) => void;
   setUserLocation: ({
     latitude,
     longitude,
