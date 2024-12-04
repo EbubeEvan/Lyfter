@@ -42,7 +42,10 @@ const RideCard = ({ ride }: { ride: Ride }) => {
               <Text className="text-md font-JakartaBold" numberOfLines={1}>
                 {formatDate(ride.created_at)}
               </Text>
-              <Text className="text-md font-JakartaBold" numberOfLines={1}>
+              <Text
+                className="text-md font-JakartaBold text-right"
+                numberOfLines={1}
+              >
                 {formatTime(ride.ride_time)}
               </Text>
             </View>

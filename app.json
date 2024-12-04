@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app-icon-android.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ebubeevan.lyfter"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": "https://lyfter.com/"
+      },
+      "eas": {
+        "projectId": "879ab4e4-0a1b-4618-93dd-f256921ee6fb"
+      }
     }
   }
 }
