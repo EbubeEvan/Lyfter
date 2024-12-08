@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Text, View, Alert } from "react-native";
-import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
+import { ActivityIndicator, Text, View, Alert, Platform } from "react-native";
+import MapView, {
+  Marker,
+  PROVIDER_DEFAULT,
+  PROVIDER_GOOGLE,
+} from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
 import { icons } from "@/constants";
@@ -84,7 +88,7 @@ const Map = () => {
 
   return (
     <MapView
-      provider={PROVIDER_DEFAULT}
+      provider={Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       className="w-full h-full rounded-2xl"
       tintColor="black"
       mapType="mutedStandard"

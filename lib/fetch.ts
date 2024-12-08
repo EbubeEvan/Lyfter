@@ -1,13 +1,22 @@
+import Constants from "expo-constants";
 import { useState, useEffect, useCallback } from "react";
+
+const baseUrl = process.env.EXPO_PUBLIC_API_URL;
+
+console.log({ baseUrl });
 
 export const fetchAPI = async (url: string, options?: RequestInit) => {
   try {
-    const response = await fetch(url, options);
+    // Ensure the URL does not double up on the base URL
+    const finalUrl = url.startsWith("http") ? url : `${baseUrl}${url}`;
+    const response = await fetch(finalUrl, options);
+
     if (!response.ok) {
-      new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+
     return await response.json();
-  } catch (error) {
+  } catch (error: any) {
     console.error("Fetch error:", error);
     throw error;
   }
@@ -23,9 +32,9 @@ export const useFetch = <T>(url: string, options?: RequestInit) => {
     setError(null);
 
     try {
-      const result = await fetchAPI(url, options);
+      const result = await fetchAPI(`${baseUrl}${url}`, options);
       setData(result.data);
-    } catch (err) {
+    } catch (err: any) {
       setError((err as Error).message);
     } finally {
       setLoading(false);

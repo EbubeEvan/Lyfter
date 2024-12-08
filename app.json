@@ -20,6 +20,11 @@
         "foregroundImage": "./assets/images/app-icon-android.png",
         "backgroundColor": "#ffffff"
       },
+      "config": {
+        "googleMaps": {
+          "apiKey": "process.env.EXPO_PUBLIC_GOOGLE_API_KEY"
+        }
+      },
       "package": "com.ebubeevan.lyfter"
     },
     "web": {
@@ -31,7 +36,15 @@
       [
         "expo-router",
         {
-          "origin": "https://lyfter.com/"
+          "origin": "https://lyfter-api.vercel.app/"
+        }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "lyfter",
+          "organization": "evans-org"
         }
       ]
     ],
@@ -39,12 +52,26 @@
       "typedRoutes": true
     },
     "extra": {
+      "@SENTRY_AUTH_TOKEN": "process.env.SENTRY_AUTH_TOKEN",
+      "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY": "process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY",
+      "EXPO_PUBLIC_SERVER_URL": "process.env.EXPO_PUBLIC_SERVER_URL",
+      "EXPO_PUBLIC_GEOAPIFY_API_KEY": "process.env.EXPO_PUBLIC_GEOAPIFY_API_KEY",
+      "EXPO_PUBLIC_GOOGLE_API_KEY": "process.env.EXPO_PUBLIC_GOOGLE_API_KEY",
+      "EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY": "process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY",
+      "EXPO_PUBLIC_API_URL": "process.env.EXPO_PUBLIC_API_URL",
       "router": {
-        "origin": "https://lyfter.com/"
+        "origin": "https://lyfter-api.vercel.app/"
       },
       "eas": {
-        "projectId": "879ab4e4-0a1b-4618-93dd-f256921ee6fb"
+        "projectId": "4daefbae-6505-4f2d-adb1-00bf6b521357"
       }
+    },
+    "owner": "ebubeevan",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4daefbae-6505-4f2d-adb1-00bf6b521357"
     }
   }
 }

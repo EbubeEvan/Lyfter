@@ -1,4 +1,5 @@
 import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
+import * as Sentry from "@sentry/react-native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -7,6 +8,11 @@ import "react-native-reanimated";
 import { LogBox } from "react-native";
 
 import { tokenCache } from "@/lib/auth";
+
+Sentry.init({
+  dsn: "https://99c995156b6c5015646a85f973c6f643@o4508427675369472.ingest.de.sentry.io/4508427790909520",
+  tracesSampleRate: 1.0,
+});
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -19,9 +25,9 @@ if (!publishableKey) {
   );
 }
 
-LogBox.ignoreLogs(["Clerk:"]);
+// LogBox.ignoreLogs(["Clerk:"]);
 
-export default function RootLayout() {
+function RootLayout() {
   const [loaded] = useFonts({
     "Jakarta-Bold": require("../assets/fonts/PlusJakartaSans-Bold.ttf"),
     "Jakarta-ExtraBold": require("../assets/fonts/PlusJakartaSans-ExtraBold.ttf"),
@@ -55,3 +61,5 @@ export default function RootLayout() {
     </ClerkProvider>
   );
 }
+
+export default Sentry.wrap(RootLayout);
