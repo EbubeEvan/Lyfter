@@ -1,7 +1,8 @@
 import Constants from "expo-constants";
 import { useState, useEffect, useCallback } from "react";
 
-const baseUrl = process.env.EXPO_PUBLIC_API_URL;
+const extras = Constants.expoConfig?.extra || {};
+const baseUrl = extras?.EXPO_PUBLIC_API_URL || process.env.EXPO_PUBLIC_API_URL;
 
 console.log({ baseUrl });
 

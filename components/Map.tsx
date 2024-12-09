@@ -1,3 +1,4 @@
+import Constants from "expo-constants";
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, Text, View, Alert, Platform } from "react-native";
 import MapView, {
@@ -17,7 +18,10 @@ import {
 import { useDriverStore, useLocationStore } from "@/store";
 import { Driver, MarkerData } from "@/types/type";
 
-const directionsAPI = process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
+const extras = Constants.expoConfig?.extra || {};
+const directionsAPI =
+  extras?.expoConfig?.extra?.EXPO_PUBLIC_GOOGLE_API_KEY ||
+  process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
 
 const Map = () => {
   const {
