@@ -6,9 +6,9 @@ import { formatDate, formatTime } from "@/lib/utils";
 import { Ride } from "@/types/type";
 
 const RideCard = ({ ride }: { ride: Ride }) => {
-  const extras = Constants.expoConfig?.extra || {};
+  const extras = Constants.expoConfig?.extra;
   const geoapifyKey =
-    extras?.expoConfig?.extra?.EXPO_PUBLIC_GEOAPIFY_API_KEY ||
+    extras?.EXPO_PUBLIC_GEOAPIFY_API_KEY ||
     process.env.EXPO_PUBLIC_GEOAPIFY_API_KEY;
 
   return (

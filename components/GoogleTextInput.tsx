@@ -7,8 +7,7 @@ import { GoogleInputProps } from "@/types/type";
 
 const extras = Constants.expoConfig?.extra || {};
 const googlePlacesApiKey =
-  extras?.extra?.EXPO_PUBLIC_GOOGLE_API_KEY ||
-  process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
+  extras?.EXPO_PUBLIC_GOOGLE_API_KEY || process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
 
 const GoogleTextInput = ({
   icon,

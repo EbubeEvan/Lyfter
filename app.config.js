@@ -60,6 +60,9 @@ export default {
       EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY:
         process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY,
       EXPO_PUBLIC_API_URL: process.env.EXPO_PUBLIC_API_URL,
+      eas: {
+        projectId: "4daefbae-6505-4f2d-adb1-00bf6b521357",
+      },
     },
     owner: "ebubeevan",
     runtimeVersion: {

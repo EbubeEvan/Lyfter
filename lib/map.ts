@@ -4,8 +4,7 @@ import { Driver, MarkerData } from "@/types/type";
 
 const extras = Constants.expoConfig?.extra || {};
 const directionsAPI =
-  extras?.expoConfig?.extra?.EXPO_PUBLIC_GOOGLE_API_KEY ||
-  process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
+  extras?.EXPO_PUBLIC_GOOGLE_API_KEY || process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
 
 export const generateMarkersFromData = ({
   data,

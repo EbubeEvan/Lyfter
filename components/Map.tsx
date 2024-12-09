@@ -1,6 +1,6 @@
 import Constants from "expo-constants";
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Text, View, Alert, Platform } from "react-native";
+import { ActivityIndicator, Text, View, Platform } from "react-native";
 import MapView, {
   Marker,
   PROVIDER_DEFAULT,
@@ -20,8 +20,7 @@ import { Driver, MarkerData } from "@/types/type";
 
 const extras = Constants.expoConfig?.extra || {};
 const directionsAPI =
-  extras?.expoConfig?.extra?.EXPO_PUBLIC_GOOGLE_API_KEY ||
-  process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
+  extras?.EXPO_PUBLIC_GOOGLE_API_KEY || process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
 
 const Map = () => {
   const {
@@ -29,7 +28,6 @@ const Map = () => {
     userLatitude,
     destinationLatitude,
     destinationLongitude,
-    isValidRoute,
     setIsValidRoute,
   } = useLocationStore();
   const { selectedDriver, setDrivers } = useDriverStore();
