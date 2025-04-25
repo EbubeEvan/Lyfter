@@ -93,7 +93,7 @@ const Map = () => {
       provider={Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       className="w-full h-full rounded-2xl"
       tintColor="black"
-      mapType="mutedStandard"
+      mapType="standard"
       showsPointsOfInterest={false}
       initialRegion={region}
       showsUserLocation={true}
