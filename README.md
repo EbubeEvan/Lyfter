@@ -60,7 +60,7 @@ Before you begin, make sure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (v18 or later)
 - [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
-- [Expo CLI](https://docs.expo.dev/more/expo-cli/) — `npm install -g expo-cli`
+- [Expo CLI](https://docs.expo.dev/more/expo-cli/) — included via `npx expo` (no global install required)
 - [EAS CLI](https://docs.expo.dev/eas/) (for production builds) — `npm install -g eas-cli`
 - [Expo Go](https://expo.dev/go) app on your iOS or Android device (for local testing)
 - An Android emulator or iOS simulator (optional)
